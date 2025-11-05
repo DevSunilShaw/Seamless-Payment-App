@@ -16,8 +16,6 @@
    cd Seamless-Payment-App
    ```
 
-The app will be available at **http://127.0.0.1:8000**
-
 ---
 
 ## Database Setup
@@ -36,8 +34,9 @@ The app will be available at **http://127.0.0.1:8000**
    php artisan migrate
    php artisan serve
    ```
-✅ If migrations run successfully, your app is ready.
+ If migrations run successfully, your app is ready.
 
+The app will be available at **http://127.0.0.1:8000**
 ---
 
 ### Option 2 — Import the test database (if migration fails)
