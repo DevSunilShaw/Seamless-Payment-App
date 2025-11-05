@@ -12,6 +12,7 @@
    ```bash
    git clone https://github.com/DevSunilShaw/Seamless-Payment-App.git
    cd Seamless-Payment-App
+   php artisan serve
 
 
 ## What this implements
