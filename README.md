@@ -22,13 +22,13 @@ Open your browser and go to http://127.0.0.1:8000
 
 ![Step 1 Screenshot](1.png)
 
-You will see the Seamless Payment Interface with the "Pay ₹10" button.
+You will see the Seamless Payment Interface with the "Pay" button.
 
 ![Step 2 Screenshot](2.png)
 
 Test the payment flow
 
-Click “Pay ₹10” to create a test UPI transaction.
+Click “Pay” to create a test UPI transaction.
 
 The UPI QR code and link will appear for scanning.
 
