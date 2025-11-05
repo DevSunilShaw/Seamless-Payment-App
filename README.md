@@ -26,3 +26,6 @@
 - The sandbox sometimes returns an array-wrapped JSON — controller normalizes it.
 - For local dev the controller uses `Http::withoutVerifying()` to avoid SSL issues.
 - All newly created transactions return `Pending` per assignment rules.
+1.png
+2.png
+3.png
