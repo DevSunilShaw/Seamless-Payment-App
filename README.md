@@ -14,7 +14,6 @@
    ```bash
    git clone https://github.com/DevSunilShaw/Seamless-Payment-App.git
    cd Seamless-Payment-App
-   php artisan serve
    ```
 
 The app will be available at **http://127.0.0.1:8000**
@@ -35,6 +34,7 @@ The app will be available at **http://127.0.0.1:8000**
 3. Run the migration command:
    ```bash
    php artisan migrate
+   php artisan serve
    ```
 ✅ If migrations run successfully, your app is ready.
 
