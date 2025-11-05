@@ -4,51 +4,120 @@
 - PHP 8.4+
 - Laravel 12.37.0 (tested)
 - Internet access (required to call sandbox API)
+- MySQL (for database setup)
 
 ---
 
 ## Install & Run
+
 1. **Clone this repository**
    ```bash
    git clone https://github.com/DevSunilShaw/Seamless-Payment-App.git
    cd Seamless-Payment-App
    php artisan serve
 
+
 The app will be available at http://127.0.0.1:8000
+
+Database Setup
+Option 1 — Run migrations (recommended)
+
+Create a new MySQL database (e.g., seamless_payment).
+
+Open the .env file in the project root and update your DB credentials:
+
+DB_DATABASE=seamless_payment
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+Run the migration command:
+
+php artisan migrate
+
+
+ If migrations run successfully, your app is ready.
+
+Option 2 — Import the test database (if migration fails)
+
+If php artisan migrate fails for any reason:
+
+Open phpMyAdmin or your MySQL client.
+
+Import the provided test.sql file (available in the project root).
+
+Ensure your .env file has the correct database credentials.
+
+Restart the server if needed:
+
+php artisan serve
+
+Troubleshooting
+
+If you face any dependency issues while running the app:
+
+composer install
+
+
+or
+
+composer update
+
+
+These will reinstall all necessary Laravel dependencies.
 
 Visit in browser
 
 Open your browser and go to http://127.0.0.1:8000
-
 ![Step 1 Screenshot](1.png)
 
 You will see the Seamless Payment Interface with the "Pay" button.
-
 ![Step 2 Screenshot](2.png)
-
-Test the payment flow
 
 Click “Pay” to create a test UPI transaction.
 
 The UPI QR code and link will appear for scanning.
 
 You can check transaction status using the “Check Status” button.
-
 ![Step 3 Screenshot](3.png)
 
-- QR code (image or base64 render)
-- A clickable UPI link (copyable)
-- Payment amount and instructions
+This section demonstrates:
 
-## What this implements
-- Create Transaction -> calls `https://sandboxtest.space/en/purchase/create-transaction`
-- Get UPI Deposit Details -> calls `https://sandboxtest.space/en/purchase/get-deposit-details`
-- Validate Transaction -> calls `https://sandboxtest.space/api/v1/validate-transaction`
-- CSRF: included in blade and JS
-- Logging: all API requests/responses are logged to storage/logs/laravel.log
+QR code (image or base64 render)
 
-## Notes
-- The sandbox sometimes returns an array-wrapped JSON — controller normalizes it.
-- For local dev the controller uses `Http::withoutVerifying()` to avoid SSL issues.
-- All newly created transactions return `Pending` per assignment rules.
+A clickable UPI link (copyable)
 
+Payment amount and instructions
+
+What this implements
+
+Create Transaction → calls
+https://sandboxtest.space/en/purchase/create-transaction
+
+Get UPI Deposit Details → calls
+https://sandboxtest.space/en/purchase/get-deposit-details
+
+Validate Transaction → calls
+https://sandboxtest.space/api/v1/validate-transaction
+
+CSRF Protection → included in Blade and JavaScript
+
+Logging → all API requests and responses are logged in
+storage/logs/laravel.log
+
+Notes
+
+The sandbox sometimes returns an array-wrapped JSON, which the controller automatically normalizes.
+
+For local development, the controller uses
+Http::withoutVerifying() to avoid SSL verification issues.
+
+All newly created transactions return Pending status per assignment rules.
+
+The sandbox UPI ID (zookpe@upi) and merchant name (ZookPe) are part of the dummy sandbox environment.
+
+.env and vendor/ directories are included intentionally for instant setup — no extra configuration needed.
+
+Author: DevSunilShaw
+
+Project: Seamless Payment Integration (Laravel Demo)
